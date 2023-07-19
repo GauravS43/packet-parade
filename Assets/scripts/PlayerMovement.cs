@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public Transform parentTransform;
 
     public Transform downCheck;
     public Transform rightCheck;
@@ -12,8 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform leftCheck;
 
     public LayerMask groundMask;
+    public LayerMask deathMask;
 
-    float speed = 20f;
+    float speed = 30f;
     float groundDistance = 0.1f;
 
     bool isGrounded;
@@ -108,22 +108,4 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
     }
-
-
-    //public Rigidbody rb;
-    ////FixedUpdate is specifically used for physics
-    //void FixedUpdate()
-    //{
-    //    //forward force
-    //    rb.AddForce(0, 0, forwardSpeed * Time.deltaTime);
-
-    //    //if (Input.GetKey("d"))
-    //    //{
-    //    //    rb.AddForce(sideSpeed * Time.deltaTime, 0, 0);
-    //    //}
-    //    //if (Input.GetKey("a"))
-    //    //{
-    //    //    rb.AddForce(-sideSpeed * Time.deltaTime, 0, 0);
-    //    //}
-    //}
 }
