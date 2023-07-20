@@ -103,7 +103,14 @@ public class PlayerMovement : MonoBehaviour
             velocity = jumpForce[state];
         }
 
-        velocity += -(jumpForce[oldState]) * Time.deltaTime;
+        if (Input.GetButton("Jump"))
+        {
+            velocity += (-0.8f) * (jumpForce[oldState]) * Time.deltaTime;
+        }
+        else
+        {
+            velocity += -(jumpForce[oldState]) * Time.deltaTime;
+        }
 
 
         controller.Move(velocity * Time.deltaTime);
