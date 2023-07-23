@@ -7,6 +7,7 @@ public class DetectFlags : MonoBehaviour
     public Transform downCheck;
     public LayerMask goalFlag;
     public LayerMask deathFlag;
+    public GameObject controller;
 
     void Update()
     {
@@ -19,6 +20,7 @@ public class DetectFlags : MonoBehaviour
 
         if (Physics.CheckSphere(downCheck.position, 1f, goalFlag))
         {
+            controller.SetActive(false);
             Game.WinLevel();
         }
     }

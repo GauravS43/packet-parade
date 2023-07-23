@@ -9,14 +9,15 @@ public class PlayerMovement : MonoBehaviour
     public Transform rightCheck;
     public Transform aboveCheck;
     public Transform leftCheck;
+    Vector3 oldPosition = new Vector3(-1, -1, -1);
+
 
     public LayerMask groundMask;
     public LayerMask deathMask;
 
-    float speed = 30f;
+    float speed = 25f;
     float groundDistance = 0.1f;
 
-    bool isGrounded;
 
     public int state = 0;
     public int oldState = 0;
@@ -25,6 +26,13 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity = new Vector3(0, 0, 0);
 
+    Vector3[] jumpForce = new[] {
+        new Vector3(0f, 10f, 0f), //down
+        new Vector3(-10f, 0f, 0f), //right
+        new Vector3(0f, -10f, 0f), //above
+        new Vector3(10f, 0f, 0f) //left
+    };
+
     Vector3[] groundForce = new[] {
         new Vector3(0f, -1f, 0f), //down
         new Vector3(1f, 0f, 0f), //right
@@ -32,12 +40,7 @@ public class PlayerMovement : MonoBehaviour
         new Vector3(-1f, 0f, 0f) //left
         };
 
-    Vector3[] jumpForce = new[] {
-        new Vector3(0f, 10f, 0f), //down
-        new Vector3(-10f, 0f, 0f), //right
-        new Vector3(0f, -10f, 0f), //above
-        new Vector3(10f, 0f, 0f) //left
-    };
+    float switchThreshold = 0f;
 
     void Update()
     {
@@ -50,9 +53,14 @@ public class PlayerMovement : MonoBehaviour
         else if (hitRightWall) state = 1;
         else if (hitAboveWall) state = 2;
         else if (hitLeftWall) state = 3;
-        else state = -1;
+        else
+        {
+            //deltatime threshold, for interpolate, if state > -1 then refresh threshold 
+            switchThreshold += Time.deltaTime;
+            state = -1;
+        }
 
-        if (state != oldState && state > -1)
+        if (state != oldState && state > -1 && switchThreshold > 0.2) 
         {
             interpolateFlag = true;
             if (oldState == 0 || oldState == 2) {
@@ -65,53 +73,66 @@ public class PlayerMovement : MonoBehaviour
             oldState = state;
         }
 
-        //can probably replace isgrounded
-        isGrounded = state > -1;
-
-        //if (isGrounded)
-        //{
-        //    velocity = groundForce[state];
-        //}
-
-
-        //horizontal movement
+        //horizontal movement (input)
         float x = Input.GetAxis("Horizontal");
 
         Vector3[] moveForce = new[] {
-        new Vector3(x, 0f, 1f), //down
-        new Vector3(0f, x, 1f), //right
-        new Vector3(-x, 0f, 1f), //above
-        new Vector3(0f, -x, 1f) //left
+        new Vector3(x, 0f, 0f), //down
+        new Vector3(0f, x, 0f), //right
+        new Vector3(-x, 0f, 0f), //above
+        new Vector3(0f, -x, 0f) //left
         };
 
-        Vector3 moveVector;
+        
 
-        if (isGrounded) {
-            moveVector = moveForce[state];
-        }
-        else
+        controller.Move(moveForce[oldState] * 0.75f * speed * Time.deltaTime);
+
+
+        //vertical movement (input)
+
+        //prevents gravity build up when grounded
+        if (state > -1)
         {
-            moveVector = moveForce[oldState];
+           velocity.x = groundForce[state].x;
+           velocity.y = groundForce[state].y;
         }
 
-        controller.Move(moveVector * speed * Time.deltaTime);
-
-
-        //vertical movement
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity = jumpForce[state];
-        }
-
+        //gravity (if player holds down jump, they will go farther)
         if (Input.GetButton("Jump"))
         {
-            velocity += (-0.8f) * (jumpForce[oldState]) * Time.deltaTime;
+            velocity += (-1.9f) * (jumpForce[oldState]) * Time.deltaTime;
         }
         else
         {
-            velocity += -(jumpForce[oldState]) * Time.deltaTime;
+            velocity += (-2.5f)* (jumpForce[oldState]) * Time.deltaTime;
         }
 
+        if (Input.GetButtonDown("Jump") && (state > -1))
+        {
+            switchThreshold = 0;
+            velocity.x = 1.5f * jumpForce[state].x;
+            velocity.y = 1.5f * jumpForce[state].y;
+        }
+
+        //forwards movement (no-input)
+        if (oldPosition.z == transform.position.z)
+        {
+            Debug.Log("reset");
+            velocity.z = 0;
+        }
+
+
+        if (velocity.z < 40f)
+        {
+            velocity.z += 10f * Time.deltaTime;
+        }
+
+        if (velocity.z > 40f)
+        {
+            velocity.z = 40f;
+        }
+
+        oldPosition = transform.position;
 
         controller.Move(velocity * Time.deltaTime);
     }

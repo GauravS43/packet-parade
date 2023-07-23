@@ -1,30 +1,15 @@
 ﻿<Properties StartupConfiguration="{3D88F32B-CB4B-3A02-EF4E-2D6AF5B1B758}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DetectFlags.cs">
     <Files>
       <File FileName="Assets/scripts/FollowPlayer.cs" Line="25" Column="32" />
       <File FileName="Assets/scripts/GameManager.cs" />
-      <File FileName="Assets/scripts/PlayerMovement.cs" Line="20" Column="1" />
+      <File FileName="Assets/scripts/PlayerMovement.cs" Line="89" Column="50" />
+      <File FileName="Assets/Scripts/DetectFlags.cs" Line="22" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Project PPP" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="scripts" expanded="True">
-                <Node name="FollowPlayer.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e5022187-0c19-480b-a025-7847dca4f05b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="94a59beb-131a-4175-8413-ba7dff53c0d0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
