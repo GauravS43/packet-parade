@@ -11,16 +11,18 @@ public class PlayerMovement : MonoBehaviour
     public Transform leftCheck;
     Vector3 oldPosition = new Vector3(-1, -1, -1);
 
-
     public LayerMask groundMask;
     public LayerMask deathMask;
 
-    float speed = 25f;
-    float groundDistance = 0.1f;
+    private float speed = 25f;
+    private float groundDistance = 0.1f;
 
-
+    //declared public as followPlayer.cs uses them
+    [HideInInspector]
     public int state = 0;
+    [HideInInspector]
     public int oldState = 0;
+    [HideInInspector]
     public bool interpolateFlag = false;
 
 
@@ -117,7 +119,6 @@ public class PlayerMovement : MonoBehaviour
         //forwards movement (no-input)
         if (oldPosition.z == transform.position.z)
         {
-            Debug.Log("reset");
             velocity.z = 0;
         }
 

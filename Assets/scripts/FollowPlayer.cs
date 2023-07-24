@@ -20,9 +20,9 @@ public class FollowPlayer : MonoBehaviour
         Quaternion.Euler(0, 0, 270)
     };
 
-    bool interpolate;
-    float elapsedTime = 0f;
-    float desiredDuration = 0.25f;
+    private bool interpolate;
+    private float elapsedTime = 0f;
+    private float desiredDuration = 0.25f;
     private int oldState = 0;
     private int state;
 
@@ -62,13 +62,5 @@ public class FollowPlayer : MonoBehaviour
             transform.position = Vector3.Lerp(player.position + offsetArr[oldState], player.position + offsetArr[state], percentageCompleted);
             transform.rotation = Quaternion.Lerp(rotatePresets[oldState], rotatePresets[state], percentageCompleted);
         }
-
-
-
-        //if (p.state != p.oldState)
-        //{
-        //    float percentageCompleted = elapsedTime / desiredDuration;
-        //    transform.position = Vector3.Lerp(player.position + offsetArr[p.oldState], player.position + offsetArr[p.state], percentageCompleted);
-        //}
     }
 }

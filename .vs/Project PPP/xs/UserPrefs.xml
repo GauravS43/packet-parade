@@ -1,11 +1,21 @@
 ﻿<Properties StartupConfiguration="{3D88F32B-CB4B-3A02-EF4E-2D6AF5B1B758}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DetectFlags.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TriggerTip.cs">
     <Files>
-      <File FileName="Assets/scripts/FollowPlayer.cs" Line="25" Column="32" />
-      <File FileName="Assets/scripts/GameManager.cs" />
-      <File FileName="Assets/scripts/PlayerMovement.cs" Line="89" Column="50" />
-      <File FileName="Assets/Scripts/DetectFlags.cs" Line="22" Column="1" />
+      <File FileName="Assets/scripts/FollowPlayer.cs" Line="61" Column="1" />
+      <File FileName="Assets/scripts/GameManager.cs" Line="17" Column="1" />
+      <File FileName="Assets/scripts/PlayerMovement.cs" Line="22" Column="26" />
+      <File FileName="Assets/TriggerBonus.cs" Line="10" Column="1" />
+      <File FileName="Assets/TriggerGoal.cs" Line="11" Column="18" />
+      <File FileName="Assets/TriggerDeath.cs" Line="8" Column="6" />
+      <File FileName="Assets/TriggerTip.cs" Line="4" Column="2" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Project PPP" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
