@@ -2,47 +2,50 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public Transform parentTransform;
+    private CharacterController controller;
 
-    public Transform downCheck;
-    public Transform rightCheck;
-    public Transform aboveCheck;
-    public Transform leftCheck;
-    Vector3 oldPosition = new Vector3(-1, -1, -1);
+    private Transform downCheck;
+    private Transform rightCheck;
+    private Transform aboveCheck;
+    private Transform leftCheck;
 
     public LayerMask groundMask;
     public LayerMask deathMask;
 
+    //declared public as followPlayer.cs uses them
+    [HideInInspector] public int state = 0;
+    [HideInInspector] public int oldState = 0;
+    [HideInInspector] public bool interpolateFlag = false;
+
     private float speed = 25f;
     private float groundDistance = 0.1f;
+    private float switchThreshold = 0f;
+    private Vector3 oldPosition = new Vector3(-1, -1, -1);
+    private Vector3 velocity = new Vector3(0, 0, 0);
 
-    //declared public as followPlayer.cs uses them
-    [HideInInspector]
-    public int state = 0;
-    [HideInInspector]
-    public int oldState = 0;
-    [HideInInspector]
-    public bool interpolateFlag = false;
-
-
-    Vector3 velocity = new Vector3(0, 0, 0);
-
-    Vector3[] jumpForce = new[] {
+    private Vector3[] jumpForce = new[] {
         new Vector3(0f, 10f, 0f), //down
         new Vector3(-10f, 0f, 0f), //right
         new Vector3(0f, -10f, 0f), //above
         new Vector3(10f, 0f, 0f) //left
     };
 
-    Vector3[] groundForce = new[] {
+    private Vector3[] groundForce = new[] {
         new Vector3(0f, -1f, 0f), //down
         new Vector3(1f, 0f, 0f), //right
         new Vector3(0f, 1f, 0f), //above
         new Vector3(-1f, 0f, 0f) //left
         };
 
-    float switchThreshold = 0f;
+
+    void Start()
+    {
+        controller = GameObject.Find("Player Controller").GetComponent<CharacterController>();
+        downCheck = GameObject.Find("Player Controller/DownCheck").GetComponent<Transform>();
+        rightCheck = GameObject.Find("Player Controller/RightCheck").GetComponent<Transform>();
+        aboveCheck = GameObject.Find("Player Controller/AboveCheck").GetComponent<Transform>();
+        leftCheck = GameObject.Find("Player Controller/LeftCheck").GetComponent<Transform>();
+    }
 
     void Update()
     {
@@ -62,13 +65,15 @@ public class PlayerMovement : MonoBehaviour
             state = -1;
         }
 
-        if (state != oldState && state > -1 && switchThreshold > 0.2) 
+        if (state != oldState && state > -1 && switchThreshold > 0.2)
         {
             interpolateFlag = true;
-            if (oldState == 0 || oldState == 2) {
+            if (oldState == 0 || oldState == 2)
+            {
                 velocity.y = 0;
             }
-            else {
+            else
+            {
                 velocity.x = 0;
             }
 
@@ -85,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         new Vector3(0f, -x, 0f) //left
         };
 
-        
+
 
         controller.Move(moveForce[oldState] * 0.75f * speed * Time.deltaTime);
 
@@ -95,8 +100,8 @@ public class PlayerMovement : MonoBehaviour
         //prevents gravity build up when grounded
         if (state > -1)
         {
-           velocity.x = groundForce[state].x;
-           velocity.y = groundForce[state].y;
+            velocity.x = groundForce[state].x;
+            velocity.y = groundForce[state].y;
         }
 
         //gravity (if player holds down jump, they will go farther)
@@ -106,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            velocity += (-2.5f)* (jumpForce[oldState]) * Time.deltaTime;
+            velocity += (-2.5f) * (jumpForce[oldState]) * Time.deltaTime;
         }
 
         if (Input.GetButtonDown("Jump") && (state > -1))

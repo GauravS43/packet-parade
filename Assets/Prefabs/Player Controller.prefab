@@ -89,17 +89,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5518635345630607870}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d37af7161ec0a47fda9eb077deb70c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 5518635346154090602}
-  parentTransform: {fileID: 5518635346154090603}
-  downCheck: {fileID: 5518635347278359924}
-  rightCheck: {fileID: 5518635346390159595}
-  aboveCheck: {fileID: 5518635345889280741}
-  leftCheck: {fileID: 5518635347162285946}
   groundMask:
     serializedVersion: 2
     m_Bits: 8

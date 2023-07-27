@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class TriggerGoal : MonoBehaviour
 {
-    public GameManager Game;
-    public PlayerMovement p;
+    private GameManager gameManager;
+    private PlayerMovement player;
+
+    private void Start()
+    {
+        gameManager = GameObject.Find("Main/GameManager").GetComponent<GameManager>();
+        player = GameObject.Find("Player Controller/Player").GetComponent<PlayerMovement>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Player Controller")
         {
-            p.enabled = false;
-            Game.WinLevel();
+            player.enabled = false;
+            gameManager.WinLevel();
         }
     }
 }

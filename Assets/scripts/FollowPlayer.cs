@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player;
-    public PlayerMovement p;
+    private Transform player;
+    private PlayerMovement p;
 
     Vector3[] offsetArr = new[] {
         new Vector3(0, 1, -7), //down
@@ -29,6 +29,8 @@ public class FollowPlayer : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+        player = GameObject.Find("Player Controller").GetComponent<Transform>();
+        p = GameObject.Find("Player Controller/Player").GetComponent<PlayerMovement>();
     }
 
     void Update()

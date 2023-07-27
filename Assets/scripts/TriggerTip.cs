@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class TriggerTip : MonoBehaviour
 {
-    public Animator tipAnim;
+    private Animator tipAnim;
+
+    private void Start()
+    {
+        tipAnim = GameObject.Find("Canvas/Popup").GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
