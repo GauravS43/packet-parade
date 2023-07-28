@@ -56,13 +56,16 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/TriggerDeath.cs" />
+    <Compile Include="Assets/Scripts/MenuManager.cs" />
     <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
-    <Compile Include="Assets/Scripts/FollowPlayer.cs" />
     <Compile Include="Assets/Scripts/TriggerBonus.cs" />
-    <Compile Include="Assets/Scripts/TriggerGoal.cs" />
-    <Compile Include="Assets/Scripts/TriggerDeath.cs" />
     <Compile Include="Assets/Scripts/TriggerTip.cs" />
+    <Compile Include="Assets/Scripts/TriggerGoal.cs" />
+    <Compile Include="Assets/Scripts/FollowPlayer.cs" />
+    <Compile Include="Assets/Scripts/LvlSelectManager.cs" />
+    <Compile Include="Assets/Scripts/CanvasManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
