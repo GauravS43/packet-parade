@@ -4064,6 +4064,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -46.716
       objectReference: {fileID: 0}
+    - target: {fileID: 5192529018571290571, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_Text
+      value: A Normal Stroll
+      objectReference: {fileID: 0}
     - target: {fileID: 5801094013166686644, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Color.a
       value: 1

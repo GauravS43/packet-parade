@@ -66,6 +66,7 @@
     <Compile Include="Assets/Scripts/FollowPlayer.cs" />
     <Compile Include="Assets/Scripts/LvlSelectManager.cs" />
     <Compile Include="Assets/Scripts/CanvasManager.cs" />
+    <Compile Include="Assets/Scripts/GameControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -90,10 +90,7 @@ public class PlayerMovement : MonoBehaviour
         new Vector3(0f, -x, 0f) //left
         };
 
-
-
         controller.Move(moveForce[oldState] * 0.75f * speed * Time.deltaTime);
-
 
         //vertical movement (input)
 

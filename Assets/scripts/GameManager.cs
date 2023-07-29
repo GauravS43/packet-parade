@@ -36,11 +36,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void WinLevel()
     {
+        string scene = SceneManager.GetActiveScene().name;
         //not called in start as it would not get updated
         bonusCounter = GameObject.Find("Flags/BonusOrb/Bonus1").GetComponent<TriggerBonus>().bonusCounter + GameObject.Find("Flags/BonusOrb2/Bonus2").GetComponent<TriggerBonus>().bonusCounter;
+        //stores state in persistent data for lvl_select
+        for (int i = 1; i < 4; i++)
+        {
+            if(bonusCounter == i)
+            {
+                GameControl.control.bonusDict[scene][i-1] = true;
+            }
+        }
+
+        if (GameControl.control.gameProgress == (scene[scene.Length - 1] - '0'))
+        {
+            GameControl.control.gameProgress += 1;
+        }
+
 
         lvlComplete.Play("LvlComplete");
         switch (bonusCounter)
