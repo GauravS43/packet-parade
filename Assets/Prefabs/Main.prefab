@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f86c1902e0e24b51aa49a2a905b9f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completeLevelUI: {fileID: 0}
 --- !u!1 &7655319680687645852
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,8 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff19c5a26e9774153a4f428f3d5d5651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  p: {fileID: 0}
 --- !u!1 &7655319680966835060
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7655319680966835060}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7655319681726683232}
@@ -184,7 +181,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.6698113, g: 0.6130176, b: 0.45812565, a: 1}
+  m_Color: {r: 0.6784314, g: 0.61960787, b: 0.7529412, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
