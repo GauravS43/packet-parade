@@ -23,38 +23,6 @@ public class LvlSelectManager : MonoBehaviour
         SceneManager.LoadScene("_Menu");
     }
 
-    private void Start()
-    {
-        lvlAnimator = GameObject.Find("Canvas/LvlSelectScreen/Levels").GetComponent<Animator>();
-
-        Color white = new Color(255, 255, 255, 255);
-
-        for (int i = 1; i < control.gameProgress + 1; i++)
-        {
-            string location = "Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((i-1) / 4)] + "/Level_" + i;
-
-            //makes the button look active
-            GameObject.Find(location).GetComponent<Image>().color = white;
-
-            //handles the stars that correspond to bonuses
-            if (control.bonusDict["Lvl_" + i][0])
-            {
-                GameObject.Find(location + "/bonusStar1").SetActive(true);
-            }
-            if (control.bonusDict["Lvl_" + i][1])
-            {
-                GameObject.Find(location + "/bonusStar2").SetActive(true);
-            }
-            if (control.bonusDict["Lvl_" + i][2])
-            {
-                GameObject.Find(location + "/bonusStar1").SetActive(true);
-                GameObject.Find(location + "/bonusStar2").SetActive(true);
-                GameObject.Find(location + "/bonusStar3").SetActive(true);
-            }
-        }
-    }
-
-
     public void rightPress()
     {
         lvlAnimator.Play("LvlSwitchR" + Mathf.Abs(animateState) % 4);
@@ -65,5 +33,37 @@ public class LvlSelectManager : MonoBehaviour
     {
         lvlAnimator.Play("LvlSwitchL" + Mathf.Abs(animateState) % 4);
         animateState--;
+    }
+
+    private void Start()
+    {
+        lvlAnimator = GameObject.Find("Canvas/LvlSelectScreen/Levels").GetComponent<Animator>();
+
+        Color white = new Color(255, 255, 255, 255);
+
+        for (int i = 1; i < control.gameProgress + 1; i++)
+        {
+            string location = "Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((i-1) / 4)] + "/Level_" + i;
+            string sceneName = (i < 10) ? "Lvl_0" + i : "Lvl_" + i;
+
+            //makes the button look active
+            GameObject.Find(location).GetComponent<Image>().color = white;
+
+            //handles the stars that correspond to bonuses
+            if (control.bonusDict[sceneName][0])
+            {
+                GameObject.Find(location + "/bonusStar1").SetActive(true);
+            }
+            if (control.bonusDict[sceneName][1])
+            {
+                GameObject.Find(location + "/bonusStar2").SetActive(true);
+            }
+            if (control.bonusDict[sceneName][2])
+            {
+                GameObject.Find(location + "/bonusStar1").SetActive(true);
+                GameObject.Find(location + "/bonusStar2").SetActive(true);
+                GameObject.Find(location + "/bonusStar3").SetActive(true);
+            }
+        }
     }
 }

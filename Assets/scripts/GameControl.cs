@@ -11,9 +11,10 @@ public class GameControl : MonoBehaviour
     private void Awake()
     {
         //stores if the player has obtained the bonuses in a level
-        for(int i = 0; i < 16; i++)
+        for(int i = 1; i < 17; i++)
         {
-            bonusDict.Add("Lvl_" + i.ToString(), new bool[3]);
+            string sceneName = (i < 10) ? "Lvl_0" + i : "Lvl_" + i;
+            bonusDict.Add(sceneName, new bool[3]);
         }
 
         //singleton pattern so we don't accidentally create multiple instances 

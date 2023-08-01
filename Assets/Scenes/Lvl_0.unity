@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 76590892}
   - component: {fileID: 76590891}
   - component: {fileID: 76590890}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f86c1902e0e24b51aa49a2a905b9f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completeLevelUI: {fileID: 1207560978}
 --- !u!4 &223527333
 Transform:
   m_ObjectHideFlags: 0
@@ -353,7 +352,7 @@ GameObject:
   - component: {fileID: 396341819}
   - component: {fileID: 396341818}
   - component: {fileID: 396341817}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Ground (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +477,7 @@ GameObject:
   - component: {fileID: 539803517}
   - component: {fileID: 539803516}
   - component: {fileID: 539803515}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: Ground (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1005,8 +1004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff19c5a26e9774153a4f428f3d5d5651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1252657365}
-  p: {fileID: 1252657366}
 --- !u!1 &974379921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,14 +1605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d85642a60b4e4bd18d65baca754130a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Game: {fileID: 223527332}
-  downCheck: {fileID: 685825114}
-  goalFlag:
-    serializedVersion: 2
-    m_Bits: 128
-  deathFlag:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!23 &1252657363
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1691,18 +1680,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37af7161ec0a47fda9eb077deb70c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1811792196}
-  parentTransform: {fileID: 1811792197}
-  downCheck: {fileID: 685825114}
-  rightCheck: {fileID: 487596485}
-  aboveCheck: {fileID: 2067100619}
-  leftCheck: {fileID: 789968468}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  deathMask:
+  leftMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 512
+  rightMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  upMask:
+    serializedVersion: 2
+    m_Bits: 2048
   state: 0
   oldState: 0
   interpolateFlag: 0

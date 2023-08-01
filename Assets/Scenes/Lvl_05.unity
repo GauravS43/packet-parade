@@ -231,7 +231,11 @@ PrefabInstance:
     - target: {fileID: 3103274330739106263, guid: 58a3bbbf42adc452189b3a99595cbd8e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4612b125a4d0047ea9d1117bec552ad5, type: 2}
+      objectReference: {fileID: 2100000, guid: a7f7bac6f370343fcbf4626f6abee1a0, type: 2}
+    - target: {fileID: 3103274330739106266, guid: 58a3bbbf42adc452189b3a99595cbd8e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3103274330770113232, guid: 58a3bbbf42adc452189b3a99595cbd8e, type: 3}
       propertyPath: m_Name
       value: Reg_Spiral_7 (1)
@@ -1072,11 +1076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37af7161ec0a47fda9eb077deb70c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1289085024 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3117940294040565540, guid: ac1507d583c004423ae13398ad6f3934, type: 3}
-  m_PrefabInstance: {fileID: 3117940295061198660}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1303097816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3103274330770113263, guid: 58a3bbbf42adc452189b3a99595cbd8e, type: 3}
@@ -1483,6 +1482,10 @@ PrefabInstance:
       propertyPath: bonusAnim
       value: 
       objectReference: {fileID: 1680163743}
+    - target: {fileID: 8269430509600639478, guid: ac1507d583c004423ae13398ad6f3934, type: 3}
+      propertyPath: m_Name
+      value: Bonus2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac1507d583c004423ae13398ad6f3934, type: 3}
 --- !u!1001 &1965540912
@@ -1944,6 +1947,10 @@ PrefabInstance:
       propertyPath: bonusAnim
       value: 
       objectReference: {fileID: 1680163743}
+    - target: {fileID: 8269430509600639478, guid: ac1507d583c004423ae13398ad6f3934, type: 3}
+      propertyPath: m_Name
+      value: Bonus1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac1507d583c004423ae13398ad6f3934, type: 3}
 --- !u!1001 &5518635346609320238
@@ -1964,7 +1971,7 @@ PrefabInstance:
     - target: {fileID: 5518635345630607871, guid: adc6cf9e0016c44e2ae0ba28f6323632, type: 3}
       propertyPath: bonus1
       value: 
-      objectReference: {fileID: 1289085024}
+      objectReference: {fileID: 0}
     - target: {fileID: 5518635345630607871, guid: adc6cf9e0016c44e2ae0ba28f6323632, type: 3}
       propertyPath: appears
       value: 

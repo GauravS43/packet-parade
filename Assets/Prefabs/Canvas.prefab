@@ -2169,9 +2169,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 567564019595359989}
     m_Modifications:
+    - target: {fileID: 540906523645409582, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227709764557942654, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2322731362506999952, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322731362506999952, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 173.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322731362506999952, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322731362506999952, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322731362506999952, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2689240472898288601, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
       propertyPath: m_Pivot.x
@@ -2257,6 +2281,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3317101353271332068, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_Text
+      value: "Retrieved Lost \nNetwork Packet #2"
+      objectReference: {fileID: 0}
     - target: {fileID: 5802759701808447047, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
       propertyPath: m_SizeDelta.x
       value: 173.5
@@ -2272,6 +2300,26 @@ PrefabInstance:
     - target: {fileID: 5802759701808447047, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.00010347
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814625849078088408, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_Text
+      value: "Retrieved Lost \nNetwork Packet #1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124564849120651302, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 173.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124564849120651302, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124564849120651302, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124564849120651302, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9199371076803852788, guid: 6b434501dbafb4e7193e496e34dd9863, type: 3}
       propertyPath: m_Name

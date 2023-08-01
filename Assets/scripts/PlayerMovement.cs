@@ -3,14 +3,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
-
-    private Transform downCheck;
-    private Transform rightCheck;
-    private Transform aboveCheck;
-    private Transform leftCheck;
+    private Transform player;
 
     public LayerMask groundMask;
-    public LayerMask deathMask;
+    public LayerMask downMask;
+    public LayerMask leftMask;
+    public LayerMask rightMask;
+    public LayerMask upMask;
 
     //declared public as followPlayer.cs uses them
     [HideInInspector] public int state = 0;
@@ -18,8 +17,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool interpolateFlag = false;
 
     private float speed = 25f;
-    private float groundDistance = 0.1f;
-    private float switchThreshold = 0f;
+    private float groundDistance = 0.6f;
     private Vector3 oldPosition = new Vector3(-1, -1, -1);
     private Vector3 velocity = new Vector3(0, 0, 0);
 
@@ -41,33 +39,29 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GameObject.Find("Player Controller").GetComponent<CharacterController>();
-        downCheck = GameObject.Find("Player Controller/DownCheck").GetComponent<Transform>();
-        rightCheck = GameObject.Find("Player Controller/RightCheck").GetComponent<Transform>();
-        aboveCheck = GameObject.Find("Player Controller/AboveCheck").GetComponent<Transform>();
-        leftCheck = GameObject.Find("Player Controller/LeftCheck").GetComponent<Transform>();
+        player = GameObject.Find("Player Controller/FlagCheck").GetComponent<Transform>();
     }
 
     void Update()
     {
-        bool hitDownWall = Physics.CheckSphere(downCheck.position, groundDistance, groundMask);
-        bool hitRightWall = Physics.CheckSphere(rightCheck.position, groundDistance, groundMask);
-        bool hitAboveWall = Physics.CheckSphere(aboveCheck.position, groundDistance, groundMask);
-        bool hitLeftWall = Physics.CheckSphere(leftCheck.position, groundDistance, groundMask);
+        bool hitDownWall = Physics.CheckSphere(player.position, groundDistance, downMask);
+        bool hitRightWall = Physics.CheckSphere(player.position, groundDistance, rightMask);
+        bool hitAboveWall = Physics.CheckSphere(player.position, groundDistance, upMask);
+        bool hitLeftWall = Physics.CheckSphere(player.position, groundDistance, leftMask);
 
         if (hitDownWall) state = 0;
         else if (hitRightWall) state = 1;
         else if (hitAboveWall) state = 2;
         else if (hitLeftWall) state = 3;
-        else
-        {
-            //deltatime threshold, for interpolate, if state > -1 then refresh threshold 
-            switchThreshold += Time.deltaTime;
-            state = -1;
-        }
+        else state = -1;
 
-        if (state != oldState && state > -1 && switchThreshold > 0.2)
+        bool grounded = (state > -1) || Physics.CheckSphere(player.position, groundDistance, groundMask);
+
+        //changes camera and resets player movement when wall hit
+        if (state != oldState && state > -1)
         {
             interpolateFlag = true;
+
             if (oldState == 0 || oldState == 2)
             {
                 velocity.y = 0;
@@ -77,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
                 velocity.x = 0;
             }
 
-            oldState = state;
+            oldState = state;            
         }
 
         //horizontal movement (input)
@@ -95,10 +89,10 @@ public class PlayerMovement : MonoBehaviour
         //vertical movement (input)
 
         //prevents gravity build up when grounded
-        if (state > -1)
+        if (grounded)
         {
-            velocity.x = groundForce[state].x;
-            velocity.y = groundForce[state].y;
+            velocity.x = groundForce[oldState].x;
+            velocity.y = groundForce[oldState].y;
         }
 
         //gravity (if player holds down jump, they will go farther)
@@ -108,14 +102,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            velocity += (-2.5f) * (jumpForce[oldState]) * Time.deltaTime;
+            velocity += (-2.8f) * (jumpForce[oldState]) * Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump") && (state > -1))
+        if (Input.GetButtonDown("Jump") && grounded)
         {
-            switchThreshold = 0;
-            velocity.x = 1.5f * jumpForce[state].x;
-            velocity.y = 1.5f * jumpForce[state].y;
+            velocity.x = 1.5f * jumpForce[oldState].x;
+            velocity.y = 1.5f * jumpForce[oldState].y;
         }
 
         //forwards movement (no-input)
@@ -125,14 +118,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (velocity.z < 40f)
+        if (velocity.z < 35f)
         {
             velocity.z += 10f * Time.deltaTime;
         }
 
-        if (velocity.z > 40f)
+        if (velocity.z > 35f)
         {
-            velocity.z = 40f;
+            velocity.z = 35f;
         }
 
         oldPosition = transform.position;
