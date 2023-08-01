@@ -1,19 +1,20 @@
 ﻿<Properties StartupConfiguration="{3D88F32B-CB4B-3A02-EF4E-2D6AF5B1B758}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TriggerGoal.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LvlSelectManager.cs">
     <Files>
       <File FileName="Assets/scripts/FollowPlayer.cs" Line="47" Column="1" />
-      <File FileName="Assets/scripts/PlayerMovement.cs" Line="51" Column="6" />
-      <File FileName="Assets/Scripts/TriggerBonus.cs" Line="17" Column="10" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="57" Column="1" />
-      <File FileName="Assets/Scripts/MenuManager.cs" Line="9" Column="6" />
-      <File FileName="Assets/Scripts/LvlSelectManager.cs" Line="20" Column="1" />
-      <File FileName="Assets/Scripts/GameControl.cs" Line="9" Column="32" />
-      <File FileName="Assets/Scripts/TriggerGoal.cs" Line="13" Column="1" />
+      <File FileName="Assets/scripts/PlayerMovement.cs" />
+      <File FileName="Assets/Scripts/TriggerBonus.cs" />
+      <File FileName="Assets/Scripts/GameManager.cs" />
+      <File FileName="Assets/Scripts/MenuManager.cs" />
+      <File FileName="Assets/Scripts/LvlSelectManager.cs" Line="15" Column="11" />
+      <File FileName="Assets/Scripts/GameControl.cs" />
+      <File FileName="Assets/Scripts/TriggerGoal.cs" />
+      <File FileName="Assets/Scripts/TriggerTip.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="67f672fc-c9fa-4258-ba8c-14ece40c9911" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="58dd5682-16dd-486c-bcc2-95324c8fc7f8" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
