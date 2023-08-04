@@ -20,7 +20,7 @@ public class FollowPlayer : MonoBehaviour
         Quaternion.Euler(0, 0, 270)
     };
 
-    private bool interpolate;
+    public bool interpolate;
     private float elapsedTime = 0f;
     private float desiredDuration = 0.25f;
     private int oldState = 0;

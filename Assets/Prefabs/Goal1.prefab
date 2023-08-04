@@ -113,9 +113,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8581805316920536176}
     m_Modifications:
+    - target: {fileID: 46266114390121295, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 400509512102245885, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029385445523940164, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162574139995963668, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637172999605621816, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3465926834067195365, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 3850399978576844773, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 4010732957402208698, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 5925863764396365217, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6040479802021137013, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6146384797364013984, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
       propertyPath: m_RootOrder
@@ -160,6 +196,14 @@ PrefabInstance:
     - target: {fileID: 6146384797364013984, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336391844848527452, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467841958158463957, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.32
       objectReference: {fileID: 0}
     - target: {fileID: 6775534540217520410, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
       propertyPath: m_Name

@@ -1636,8 +1636,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946381044}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0.5}
-  m_LocalScale: {x: 0.1, y: 1, z: 0.1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0.48112}
+  m_LocalScale: {x: 0.1, y: 1, z: 0.096224}
   m_Children: []
   m_Father: {fileID: 263719124}
   m_RootOrder: 4
@@ -1877,6 +1877,14 @@ PrefabInstance:
     - target: {fileID: 4202224991546430476, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202224991695774231, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03390634
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202224991695774231, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.33047
       objectReference: {fileID: 0}
     - target: {fileID: 4202224992796482564, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
       propertyPath: m_Name
@@ -4095,6 +4103,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7959481432050843632, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_Text
+      value: Use the Arrow Keys or WASD to move and Space to jump.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
 --- !u!1001 &955660009578187608
@@ -4323,6 +4335,22 @@ PrefabInstance:
     - target: {fileID: 4202224991546430476, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202224991695774231, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.050045002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202224991695774231, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.24977
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202224991833432899, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.084277
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202224991833432899, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.42139
       objectReference: {fileID: 0}
     - target: {fileID: 4202224992796482564, guid: 573cdf9b26cc2489cbf6c047356c7c53, type: 3}
       propertyPath: m_Name
