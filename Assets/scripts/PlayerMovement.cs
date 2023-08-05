@@ -65,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(bufferJump);
         bool hitDownWall = Physics.CheckSphere(downCheck.position, groundDistance, downMask);
         bool hitRightWall = Physics.CheckSphere(rightCheck.position, groundDistance, rightMask);
         bool hitAboveWall = Physics.CheckSphere(upCheck.position, groundDistance, upMask);
@@ -78,20 +77,6 @@ public class PlayerMovement : MonoBehaviour
         else state = -1;
 
         bool grounded = (state > -1) || Physics.CheckSphere(groundCheck[oldState].position, groundDistance, groundMask);
-        if (bufferJump && grounded)
-        {
-            heldJump = true;
-            velocity.x = 1.5f * jumpForce[oldState].x;
-            velocity.y = 1.5f * jumpForce[oldState].y;
-        }
-        else if (bufferJump && !grounded)
-        {
-            bufferLength += 1;
-            if (bufferLength > 2000)
-            {
-                bufferJump = false;
-            }
-        }
 
         //changes camera and resets momentum when wall hit
         if (state != oldState && state > -1)
@@ -126,16 +111,37 @@ public class PlayerMovement : MonoBehaviour
             velocity += (-2.8f) * (jumpForce[oldState]) * Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Jump") && grounded)
+
+        //player can buffer jump if not grounded
+        if (Input.GetButtonDown("Jump"))
         {
-            heldJump = true;
-            velocity.x = 1.5f * jumpForce[oldState].x;
-            velocity.y = 1.5f * jumpForce[oldState].y;
+            if (grounded) {
+                heldJump = true;
+                velocity.x = 1.5f * jumpForce[oldState].x;
+                velocity.y = 1.5f * jumpForce[oldState].y;
+            }
+            else bufferJump = true;
         }
-        else if (Input.GetButtonDown("Jump") && !grounded)
+
+        //if buffered and grounded, force jump
+        if (bufferJump)
         {
-            bufferJump = true;
-            bufferLength = 0;
+            if (grounded)
+            {
+                heldJump = true;
+                velocity.x = 1.5f * jumpForce[oldState].x;
+                velocity.y = 1.5f * jumpForce[oldState].y;
+            }
+            else
+            {
+                bufferLength += 1;
+                // buffer only lasts 10 frames
+                if (bufferLength > 10)
+                {
+                    bufferJump = false;
+                    bufferLength = 0;
+                }
+            }
         }
 
         //FORWARD MOVEMENT
@@ -145,14 +151,13 @@ public class PlayerMovement : MonoBehaviour
             velocity.z = 0;
         }
 
-        if (velocity.z < 38f)
-        {
-            velocity.z += 10f * Time.deltaTime;
-        }
-
-        if (velocity.z > 38f)
+        if (velocity.z >= 38f)
         {
             velocity.z = 38f;
+        }
+        else if (velocity.z < 38f)
+        {
+            velocity.z += 10f * Time.deltaTime;
         }
 
         oldPosition = transform.position;

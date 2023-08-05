@@ -80,8 +80,6 @@ public class LvlSelectManager : MonoBehaviour
             }
         }
 
-        Debug.Log(bonusProgress);
-
         for (int i = 8; i <= bonusProgress; i+= 8)
         {
             GameObject.Find("Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((i / 8) - 1)] + "/Level_B" + (i / 8)).GetComponent<Image>().color = white;
