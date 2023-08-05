@@ -8,13 +8,27 @@ public class LvlSelectManager : MonoBehaviour
     private Animator lvlAnimator;
 
     private int animateState = 0;
+    private int bonusProgress = 0;
     private string[] levelGroup = new string[] { "1-4", "5-8", "9-12", "13-16"};
 
     public void SelectLevel(string sceneName)
     {
-        if (GameControl.control.gameProgress >= int.Parse(sceneName.Substring(4)))
+        int lvlNum = int.Parse(sceneName.Substring(4));
+
+        if (lvlNum < 90)
         {
-            SceneManager.LoadScene(sceneName);
+            if (GameControl.control.gameProgress >= lvlNum)
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+        }
+        else
+        {
+            if (bonusProgress/8 >= (lvlNum - 90))
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+
         }
     }
 
@@ -53,17 +67,25 @@ public class LvlSelectManager : MonoBehaviour
             if (control.bonusDict[sceneName][0])
             {
                 GameObject.Find(location + "/bonusStar1").SetActive(true);
+                bonusProgress += 1;
             }
             if (control.bonusDict[sceneName][1])
             {
                 GameObject.Find(location + "/bonusStar2").SetActive(true);
+                bonusProgress += 1;
             }
             if (control.bonusDict[sceneName][2])
             {
-                GameObject.Find(location + "/bonusStar1").SetActive(true);
-                GameObject.Find(location + "/bonusStar2").SetActive(true);
                 GameObject.Find(location + "/bonusStar3").SetActive(true);
             }
         }
+
+        Debug.Log(bonusProgress);
+
+        for (int i = 8; i <= bonusProgress; i+= 8)
+        {
+            GameObject.Find("Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((i / 8) - 1)] + "/Level_B" + (i / 8)).GetComponent<Image>().color = white;
+        }
+
     }
 }

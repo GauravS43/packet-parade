@@ -42,22 +42,15 @@ public class GameManager : MonoBehaviour
         string scene = SceneManager.GetActiveScene().name;
         //not called in start as it would not get updated
         bonusCounter = GameObject.Find("Flags/BonusOrb/Bonus1").GetComponent<TriggerBonus>().bonusCounter + GameObject.Find("Flags/BonusOrb2/Bonus2").GetComponent<TriggerBonus>().bonusCounter;
-        //stores state in persistent data for lvl_select
-        for (int i = 1; i < 4; i++)
-        {
-            if(bonusCounter == i)
-            {
-                GameControl.control.bonusDict[scene][i-1] = true;
-            }
-        }
 
-        if (GameControl.control.gameProgress == (scene[scene.Length - 1] - '0'))
+        if (GameControl.control.gameProgress == int.Parse(scene.Substring(4)))
         {
             GameControl.control.gameProgress += 1;
         }
 
 
         lvlComplete.Play("LvlComplete");
+
         switch (bonusCounter)
         {
             case 0:
@@ -66,11 +59,16 @@ public class GameManager : MonoBehaviour
                 break;
             case 1:
                 bonusUi2.SetActive(false);
+                GameControl.control.bonusDict[scene][0] = true;
                 break;
             case 2:
                 bonusUi1.SetActive(false);
+                GameControl.control.bonusDict[scene][1] = true;
                 break;
             default:
+                GameControl.control.bonusDict[scene][0] = true;
+                GameControl.control.bonusDict[scene][1] = true;
+                GameControl.control.bonusDict[scene][2] = true;
                 break;
         }
     }

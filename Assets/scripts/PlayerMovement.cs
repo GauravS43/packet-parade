@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float groundDistance = 0.1f;
     private bool heldJump = false;
+    private bool bufferJump = false;
+    private int bufferLength = 0;
 
     private Vector3 oldPosition = new Vector3(-1, -1, -1);
     private Vector3 velocity = new Vector3(0, 0, 0);
@@ -63,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(bufferJump);
         bool hitDownWall = Physics.CheckSphere(downCheck.position, groundDistance, downMask);
         bool hitRightWall = Physics.CheckSphere(rightCheck.position, groundDistance, rightMask);
         bool hitAboveWall = Physics.CheckSphere(upCheck.position, groundDistance, upMask);
@@ -75,6 +78,20 @@ public class PlayerMovement : MonoBehaviour
         else state = -1;
 
         bool grounded = (state > -1) || Physics.CheckSphere(groundCheck[oldState].position, groundDistance, groundMask);
+        if (bufferJump && grounded)
+        {
+            heldJump = true;
+            velocity.x = 1.5f * jumpForce[oldState].x;
+            velocity.y = 1.5f * jumpForce[oldState].y;
+        }
+        else if (bufferJump && !grounded)
+        {
+            bufferLength += 1;
+            if (bufferLength > 2000)
+            {
+                bufferJump = false;
+            }
+        }
 
         //changes camera and resets momentum when wall hit
         if (state != oldState && state > -1)
@@ -114,6 +131,11 @@ public class PlayerMovement : MonoBehaviour
             heldJump = true;
             velocity.x = 1.5f * jumpForce[oldState].x;
             velocity.y = 1.5f * jumpForce[oldState].y;
+        }
+        else if (Input.GetButtonDown("Jump") && !grounded)
+        {
+            bufferJump = true;
+            bufferLength = 0;
         }
 
         //FORWARD MOVEMENT
