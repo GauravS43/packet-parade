@@ -6,10 +6,10 @@ public class FollowPlayer : MonoBehaviour
     private PlayerMovement p;
 
     Vector3[] offsetArr = new[] {
-        new Vector3(0, 1, -7), //down
-        new Vector3(-1, 0, -7), //right
-        new Vector3(0, -1, -7), //above
-        new Vector3(1, 0, -7), //left
+        new Vector3(0, 3, -15), //down
+        new Vector3(-3, 0, -15), //right
+        new Vector3(0, -3, -15), //above
+        new Vector3(3, 0, -15), //left
     };
 
     Quaternion[] rotatePresets = new[]
@@ -22,7 +22,7 @@ public class FollowPlayer : MonoBehaviour
 
     public bool interpolate;
     private float elapsedTime = 0f;
-    private float desiredDuration = 0.25f;
+    private float desiredDuration = 0.15f;
     private int oldState = 0;
     private int state;
 
@@ -32,6 +32,7 @@ public class FollowPlayer : MonoBehaviour
         player = GameObject.Find("Player Controller").GetComponent<Transform>();
         p = GameObject.Find("Player Controller/Player").GetComponent<PlayerMovement>();
     }
+
 
     void Update()
     {

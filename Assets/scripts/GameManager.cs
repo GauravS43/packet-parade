@@ -23,9 +23,10 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetButtonDown("Jump") && !gameStart)
+        if (!gameStart && Input.GetButtonDown("Jump"))
         {
             GameObject.Find("Canvas/LvlTitle").GetComponent<Animator>().Play("LvlTitle_Disappear");
+            GameObject.Find("Canvas/Pause").GetComponent<Animator>().Play("PauseButton_Appear");
             playerMove.enabled = true;
             gameStart = true;
             isPlayerMoving = true;
