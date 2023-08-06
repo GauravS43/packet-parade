@@ -2419,7 +2419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7959481432050843632, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Text
-      value: 'Change gravity by bumping into walls or ceilings '
+      value: Press jump slightly before you land to immediately jump when grounded.
       objectReference: {fileID: 0}
     - target: {fileID: 8552206846414623328, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Text
