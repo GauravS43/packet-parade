@@ -55,6 +55,7 @@ public class LvlSelectManager : MonoBehaviour
 
         Color white = new Color(255, 255, 255, 255);
 
+        //regular levels
         for (int i = 1; i < control.gameProgress + 1; i++)
         {
             string location = "Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((i-1) / 4)] + "/Level_" + i;
@@ -80,9 +81,28 @@ public class LvlSelectManager : MonoBehaviour
             }
         }
 
+        //bonus levels
         for (int i = 8; i <= bonusProgress; i+= 8)
         {
-            GameObject.Find("Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((i / 8) - 1)] + "/Level_B" + (i / 8)).GetComponent<Image>().color = white;
+            string sceneName = "Lvl_9" + (i/8);
+            string location = "Canvas/LvlSelectScreen/Levels/" + levelGroup[(i / 8) - 1] + "/Level_B" + (i / 8);
+
+            GameObject.Find(location).GetComponent<Image>().color = white;
+
+            if (control.bonusDict[sceneName][0])
+            {
+                GameObject.Find(location + "/bonusStar1").SetActive(true);
+                bonusProgress += 1;
+            }
+            if (control.bonusDict[sceneName][1])
+            {
+                GameObject.Find(location + "/bonusStar2").SetActive(true);
+                bonusProgress += 1;
+            }
+            if (control.bonusDict[sceneName][2])
+            {
+                GameObject.Find(location + "/bonusStar3").SetActive(true);
+            }
         }
 
     }

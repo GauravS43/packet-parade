@@ -17,6 +17,13 @@ public class GameControl : MonoBehaviour
             bonusDict.Add(sceneName, new bool[3]);
         }
 
+        //adds keys for bonus lvls
+        for(int i=1; i<6; i++)
+        {
+            string sceneName = "Lvl_9" + i;
+            bonusDict.Add(sceneName, new bool[3]);
+        }
+
         //singleton pattern so we don't accidentally create multiple instances 
         DontDestroyOnLoad(gameObject);
         if (control == null)
