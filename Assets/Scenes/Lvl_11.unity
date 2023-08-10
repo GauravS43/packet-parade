@@ -2004,7 +2004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5192529018571290571, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Text
-      value: Spiral
+      value: Going Down
       objectReference: {fileID: 0}
     - target: {fileID: 5192529018571290571, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_FontData.m_MaxSize
@@ -2028,7 +2028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8552206846414623328, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Text
-      value: Level 5
+      value: Level 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
