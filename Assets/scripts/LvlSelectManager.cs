@@ -9,7 +9,7 @@ public class LvlSelectManager : MonoBehaviour
 
     private int animateState = 0;
     private int bonusProgress = 0;
-    private string[] levelGroup = new string[] { "1-4", "5-8", "9-12", "13-16"};
+    private string[] levelGroup = new string[] { "1-4", "5-8", "9-12", "13-16", "B5"};
 
     public void SelectLevel(string sceneName)
     {
@@ -39,13 +39,13 @@ public class LvlSelectManager : MonoBehaviour
 
     public void rightPress()
     {
-        lvlAnimator.Play("LvlSwitchR" + Mathf.Abs(animateState) % 4);
+        lvlAnimator.Play("LvlSwitchR" + Mathf.Abs(animateState) % 5);
         animateState++;
     }
 
     public void leftPress()
     {
-        lvlAnimator.Play("LvlSwitchL" + Mathf.Abs(animateState) % 4);
+        lvlAnimator.Play("LvlSwitchL" + Mathf.Abs(animateState) % 5);
         animateState--;
     }
 
@@ -80,6 +80,8 @@ public class LvlSelectManager : MonoBehaviour
                 GameObject.Find(location + "/bonusStar3").SetActive(true);
             }
         }
+
+        GameObject.Find("Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((control.gameProgress - 1) / 4)] + "/Level_" + control.gameProgress + "/gleam").SetActive(true);
 
         //bonus levels
         for (int i = 8; i <= bonusProgress; i+= 8)

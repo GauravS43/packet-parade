@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     private int bonusCounter;
     private GameObject bonusUi1;
     private GameObject bonusUi2;
+    private GameObject bonusUi3;
     private Animator lvlComplete;
     private bool isPlayerMoving;
     private bool gameStart;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     {
         bonusUi1 = GameObject.Find("Canvas/LvlComplete/BonusUI1");
         bonusUi2 = GameObject.Find("Canvas/LvlComplete/BonusUI2");
+        bonusUi3 = GameObject.Find("Canvas/LvlComplete/BonusUI3");
         lvlComplete = GameObject.Find("Canvas/LvlComplete").GetComponent<Animator>();
         playerMove = GameObject.Find("Player Controller/Player").GetComponent<PlayerMovement>();
         pauseMenu = GameObject.Find("Canvas/PauseMenu").GetComponent<Animator>();
@@ -43,32 +45,38 @@ public class GameManager : MonoBehaviour
         //not called in start as it would not get updated
         bonusCounter = GameObject.Find("Flags/BonusOrb/Bonus1").GetComponent<TriggerBonus>().bonusCounter + GameObject.Find("Flags/BonusOrb2/Bonus2").GetComponent<TriggerBonus>().bonusCounter;
 
-        if (GameControl.control.gameProgress == int.Parse(scene.Substring(4)))
+        if (GameControl.control.gameProgress == int.Parse(scene.Substring(4)) && GameControl.control.gameProgress < 16)
         {
             GameControl.control.gameProgress += 1;
+            PlayerPrefs.SetInt("gameProgress", GameControl.control.gameProgress);
         }
 
 
         lvlComplete.Play("LvlComplete");
 
+        string savedBonus = PlayerPrefs.GetString(scene);
+
         switch (bonusCounter)
         {
             case 0:
-                bonusUi1.SetActive(false);
-                bonusUi2.SetActive(false);
                 break;
             case 1:
-                bonusUi2.SetActive(false);
+                bonusUi1.SetActive(true);
                 GameControl.control.bonusDict[scene][0] = true;
+                PlayerPrefs.SetString(scene, "1" + savedBonus.Substring(1));
                 break;
             case 2:
-                bonusUi1.SetActive(false);
+                bonusUi2.SetActive(true);
                 GameControl.control.bonusDict[scene][1] = true;
+                PlayerPrefs.SetString(scene, savedBonus[0] + "1" + savedBonus[2]);
+
                 break;
             default:
-                GameControl.control.bonusDict[scene][0] = true;
-                GameControl.control.bonusDict[scene][1] = true;
-                GameControl.control.bonusDict[scene][2] = true;
+                bonusUi1.SetActive(true);
+                bonusUi2.SetActive(true);
+                bonusUi3.SetActive(true);
+                GameControl.control.bonusDict[scene] = new bool[3] { true, true, true };
+                PlayerPrefs.SetString(scene, "111");
                 break;
         }
     }

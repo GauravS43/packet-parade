@@ -20,10 +20,10 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public int oldState = 0;
     [HideInInspector] public bool interpolateFlag = false;
 
-    private float groundDistance = 0.1f;
     private bool heldJump = false;
     private bool bufferJump = false;
     private int bufferLength = 0;
+    private float groundDistance = 0.1f;
 
     private Vector3 oldPosition = new Vector3(-1, -1, -1);
     private Vector3 velocity = new Vector3(0, 0, 0);
@@ -82,14 +82,12 @@ public class PlayerMovement : MonoBehaviour
         if (state != oldState && state > -1)
         {
             interpolateFlag = true;
-
             if (oldState == 0 || oldState == 2) velocity.y = 0;
             else velocity.x = 0;
 
             oldState = state;
         }
 
-        //HORIZONTAL MOVEMENT
         controller.Move(moveForce[oldState] * Input.GetAxis("Horizontal") * Time.deltaTime);
 
         //VERTICAL MOVEMENT
@@ -161,6 +159,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         oldPosition = transform.position;
+
 
         controller.Move(velocity * Time.deltaTime);
     }

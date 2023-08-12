@@ -22,7 +22,7 @@ public class FollowPlayer : MonoBehaviour
 
     public bool interpolate;
     private float elapsedTime = 0f;
-    private float desiredDuration = 0.15f;
+    private float desiredDuration = 0.25f;
     private int oldState = 0;
     private int state;
 
@@ -44,6 +44,7 @@ public class FollowPlayer : MonoBehaviour
 
             interpolate = true;
             elapsedTime = 0;
+            p.enabled = false;
         }
 
         if (!interpolate)
@@ -60,6 +61,7 @@ public class FollowPlayer : MonoBehaviour
                 percentageCompleted = 1;
                 interpolate = false;
                 oldState = state;
+                p.enabled = true;
             }
 
             transform.position = Vector3.Lerp(player.position + offsetArr[oldState], player.position + offsetArr[state], percentageCompleted);
