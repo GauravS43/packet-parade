@@ -7,7 +7,7 @@ public class LvlSelectManager : MonoBehaviour
     private GameControl control = GameControl.control;
     private Animator lvlAnimator;
 
-    private int animateState = 0;
+    private int animateState = 4000;
     private int bonusProgress = 0;
     private string[] levelGroup = new string[] { "1-4", "5-8", "9-12", "13-16", "B5"};
 
@@ -34,19 +34,21 @@ public class LvlSelectManager : MonoBehaviour
 
     public void HandleBack()
     {
-        SceneManager.LoadScene("_Menu");
+        SceneManager.LoadScene("__Menu");
     }
 
     public void rightPress()
     {
         lvlAnimator.Play("LvlSwitchR" + Mathf.Abs(animateState) % 5);
         animateState++;
+        Debug.Log(Mathf.Abs(animateState) % 5);
     }
 
     public void leftPress()
     {
         lvlAnimator.Play("LvlSwitchL" + Mathf.Abs(animateState) % 5);
         animateState--;
+        Debug.Log(Mathf.Abs(animateState) % 5);
     }
 
     private void Start()

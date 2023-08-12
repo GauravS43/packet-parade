@@ -1,18 +1,16 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameControl.cs">
+﻿<Properties StartupConfiguration="{3D88F32B-CB4B-3A02-EF4E-2D6AF5B1B758}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MenuManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameControl.cs" Line="41" Column="51" IsPinned="True" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="50" Column="10" IsPinned="True" />
-      <File FileName="Assets/scripts/PlayerMovement.cs" Line="59" Column="1" />
-      <File FileName="Assets/scripts/FollowPlayer.cs" Line="25" Column="41" />
-      <File FileName="Assets/Scripts/TriggerBonus.cs" Line="23" Column="78" />
-      <File FileName="Assets/Scripts/LvlSelectManager.cs" Line="84" Column="1" />
-      <File FileName="Assets/Scripts/MenuManager.cs" Line="23" Column="1" />
+      <File FileName="Assets/Scripts/GameControl.cs" Line="72" Column="1" IsPinned="True" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="94" Column="1" IsPinned="True" />
+      <File FileName="Assets/Scripts/CreditsManager.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/LvlSelectManager.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="21" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="58dd5682-16dd-486c-bcc2-95324c8fc7f8" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b5236f7f-8737-494e-9d1a-b3b679eca946" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

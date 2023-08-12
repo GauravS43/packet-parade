@@ -5,7 +5,15 @@ public class MenuManager : MonoBehaviour
 {
     public void HandlePlay()
     {
-        SceneManager.LoadScene("_Lvl_Select");
+        if (GameControl.control.gameProgress > 1)
+        {
+            SceneManager.LoadScene("_Lvl_Select");
+        }
+        else
+        {
+            SceneManager.LoadScene("_Story");
+        }
+
     }
 
     public void HandleOptions()
@@ -16,6 +24,11 @@ public class MenuManager : MonoBehaviour
     public void HandleBack()
     {
         GameObject.Find("Canvas/MenuScreen").GetComponent<Animator>().Play("ToMenu");
+    }
+
+    public void HandleCredits()
+    {
+        SceneManager.LoadScene("_Credits");
     }
 
     public void ResetProgress()
