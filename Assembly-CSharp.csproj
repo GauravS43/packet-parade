@@ -69,6 +69,7 @@
     <Compile Include="Assets/Scripts/MeshCombiner.cs" />
     <Compile Include="Assets/Scripts/FollowPlayer.cs" />
     <Compile Include="Assets/Scripts/CreditsManager.cs" />
+    <Compile Include="Assets/Scripts/StoryText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

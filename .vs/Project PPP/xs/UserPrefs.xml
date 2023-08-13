@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{3D88F32B-CB4B-3A02-EF4E-2D6AF5B1B758}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MenuManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StoryText.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameControl.cs" Line="72" Column="1" IsPinned="True" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="94" Column="1" IsPinned="True" />
+      <File FileName="Assets/Scripts/GameControl.cs" Line="16" Column="68" IsPinned="True" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="101" Column="48" IsPinned="True" />
       <File FileName="Assets/Scripts/CreditsManager.cs" Line="12" Column="1" />
-      <File FileName="Assets/Scripts/LvlSelectManager.cs" Line="34" Column="1" />
-      <File FileName="Assets/Scripts/MenuManager.cs" Line="21" Column="23" />
+      <File FileName="Assets/Scripts/LvlSelectManager.cs" Line="42" Column="41" />
+      <File FileName="Assets/Scripts/MenuManager.cs" Line="14" Column="46" />
+      <File FileName="Assets/Scripts/StoryText.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

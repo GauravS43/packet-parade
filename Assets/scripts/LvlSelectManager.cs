@@ -7,6 +7,7 @@ public class LvlSelectManager : MonoBehaviour
     private GameControl control = GameControl.control;
     private Animator lvlAnimator;
 
+    private Color white = new Color(255, 255, 255, 255);
     private int animateState = 4000;
     private int bonusProgress = 0;
     private string[] levelGroup = new string[] { "1-4", "5-8", "9-12", "13-16", "B5"};
@@ -39,23 +40,19 @@ public class LvlSelectManager : MonoBehaviour
 
     public void rightPress()
     {
-        lvlAnimator.Play("LvlSwitchR" + Mathf.Abs(animateState) % 5);
+        lvlAnimator.Play("LvlSwitchR" + animateState % 5);
         animateState++;
-        Debug.Log(Mathf.Abs(animateState) % 5);
     }
 
     public void leftPress()
     {
-        lvlAnimator.Play("LvlSwitchL" + Mathf.Abs(animateState) % 5);
+        lvlAnimator.Play("LvlSwitchL" + animateState % 5);
         animateState--;
-        Debug.Log(Mathf.Abs(animateState) % 5);
     }
 
     private void Start()
     {
         lvlAnimator = GameObject.Find("Canvas/LvlSelectScreen/Levels").GetComponent<Animator>();
-
-        Color white = new Color(255, 255, 255, 255);
 
         //regular levels
         for (int i = 1; i < control.gameProgress + 1; i++)
@@ -83,7 +80,8 @@ public class LvlSelectManager : MonoBehaviour
             }
         }
 
-        GameObject.Find("Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((control.gameProgress - 1) / 4)] + "/Level_" + control.gameProgress + "/gleam").SetActive(true);
+        //activates gleam 
+        //GameObject.Find("Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((control.gameProgress - 1) / 4)] + "/Level_" + control.gameProgress + "/gleam").SetActive(true);
 
         //bonus levels
         for (int i = 8; i <= bonusProgress; i+= 8)
