@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class StoryText : MonoBehaviour
 {
     private float delay = 0.05f;
-    private bool skipStory = false;
+    private bool textDone = false;
 
     private string[] textArr = new string[]
     {
@@ -23,14 +23,9 @@ public class StoryText : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump") && skipStory)
+        if (textDone && Input.GetButton("Jump"))
         {
             SceneManager.LoadScene("Lvl_01");
-        }
-        else if (Input.anyKey && !skipStory)
-        {
-            skipStory = true;
-            GameObject.Find("Canvas/Story/SkipText").SetActive(true);
         }
 
     }
@@ -38,9 +33,6 @@ public class StoryText : MonoBehaviour
     {
         for (int i = 0; i < textArr.Length; i++)
         {
-            //doesn't display "Press Space to Continue" if skip text is already displayed
-            if (i == 3 && skipStory) continue;
-
             Text txtObj = GameObject.Find("Canvas/Story/Text" + i).GetComponent<Text>();
             for (int j = 0; j <= textArr[i].Length; j++)
             {
@@ -49,6 +41,6 @@ public class StoryText : MonoBehaviour
             }
         }
 
-        skipStory = true;
+        textDone = true;
     }
 }

@@ -80,9 +80,6 @@ public class LvlSelectManager : MonoBehaviour
             }
         }
 
-        //activates gleam 
-        //GameObject.Find("Canvas/LvlSelectScreen/Levels/" + levelGroup[Mathf.FloorToInt((control.gameProgress - 1) / 4)] + "/Level_" + control.gameProgress + "/gleam").SetActive(true);
-
         //bonus levels
         for (int i = 8; i <= bonusProgress; i+= 8)
         {
