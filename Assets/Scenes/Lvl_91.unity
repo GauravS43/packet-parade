@@ -1275,7 +1275,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2579c4e5fb00b451bb620d4e33ee24b4, type: 2}
     - target: {fileID: 5483448186264817497, guid: 270de17d79228438890a2e99ce680d50, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5483448187019639310, guid: 270de17d79228438890a2e99ce680d50, type: 3}
       propertyPath: m_Layer
@@ -1295,7 +1295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6653488112480602035, guid: 270de17d79228438890a2e99ce680d50, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6653488112480602046, guid: 270de17d79228438890a2e99ce680d50, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2104,7 +2104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7959481432050843632, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Text
-      value: 'Change gravity by bumping into walls or ceilings '
+      value: Darker walls will not change gravity.
       objectReference: {fileID: 0}
     - target: {fileID: 8552206846414623328, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Text

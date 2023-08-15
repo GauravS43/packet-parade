@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Computer
       objectReference: {fileID: 0}
+    - target: {fileID: 7861382383585846321, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: faab06c9085e74f77bb6c70757520742, type: 2}
     - target: {fileID: 8778491125296202508, guid: c7ed52cdc2b6a44419842203b6f64c67, type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.46
