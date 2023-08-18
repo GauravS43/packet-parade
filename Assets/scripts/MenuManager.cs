@@ -6,24 +6,14 @@ public class MenuManager : MonoBehaviour
 {
     public void Start()
     {
-        Debug.Log("MUSICVOLUME:" + PlayerPrefs.GetFloat("musicVolume"));
-        Debug.Log("SFXVOLUME:" + PlayerPrefs.GetFloat("sfxVolume"));
-        GameObject.Find("Canvas/MenuScreen/OptionsMenu/MusicSlider").GetComponent<Slider>().value = PlayerPrefs.GetFloat("musicVolume");
-        GameObject.Find("Canvas/MenuScreen/OptionsMenu/SFXSlider").GetComponent<Slider>().value = PlayerPrefs.GetFloat("sfxVolume");
+        GameObject.Find("Canvas/MenuScreen/OptionsMenu/MusicSlider").GetComponent<Slider>().value = GameControl.control.musicVolume;
+        GameObject.Find("Canvas/MenuScreen/OptionsMenu/SFXSlider").GetComponent<Slider>().value = GameControl.control.sfxVolume;
     }
 
 
     public void HandlePlay()
     {
-        if (GameControl.control.gameProgress > 1)
-        {
-            SceneManager.LoadScene("_Lvl_Select");
-        }
-        else
-        {
-            SceneManager.LoadScene("_Story");
-        }
-
+        SceneManager.LoadScene((GameControl.control.gameProgress > 1) ? "_Lvl_Select" : "_Story");
     }
 
     public void HandleOptions()
@@ -68,14 +58,12 @@ public class MenuManager : MonoBehaviour
     {
         GameControl.control.musicVolume = value;
         PlayerPrefs.SetFloat("musicVolume", value);
-        Debug.Log("MUSICVOLUME:" + PlayerPrefs.GetFloat("musicVolume"));
     }
 
     public void ChangeSFX(float value)
     {
         GameControl.control.sfxVolume = value;
         PlayerPrefs.SetFloat("sfxVolume", value);
-        Debug.Log("SFXVOLUME:" + PlayerPrefs.GetFloat("sfxVolume"));
     }
 
     public void EnterDebug()

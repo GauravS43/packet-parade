@@ -51,6 +51,12 @@ public class PlayerMovement : MonoBehaviour
         new Vector3(0f, -20f, 0f) //left
     };
 
+    private void playSfx(AudioSource source)
+    {
+        source.volume = GameControl.control.sfxVolume;
+        source.Play();
+    }
+
     void Start()
     {
         controller = GameObject.Find("Player Controller").GetComponent<CharacterController>();
@@ -117,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             if (grounded) {
-                jumpSFX.Play();
+                playSfx(jumpSFX);
                 heldJump = true;
                 velocity.x = 1.5f * jumpForce[oldState].x;
                 velocity.y = 1.5f * jumpForce[oldState].y;
@@ -130,10 +136,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (grounded)
             {
+                playSfx(jumpSFX);
                 heldJump = true;
                 velocity.x = 1.5f * jumpForce[oldState].x;
                 velocity.y = 1.5f * jumpForce[oldState].y;
-                jumpSFX.Play();
             }
             else
             {
