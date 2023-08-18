@@ -6,7 +6,8 @@ public class MenuManager : MonoBehaviour
 {
     public void Start()
     {
-        Debug.Log(PlayerPrefs.GetFloat("musicVolume"));
+        Debug.Log("MUSICVOLUME:" + PlayerPrefs.GetFloat("musicVolume"));
+        Debug.Log("SFXVOLUME:" + PlayerPrefs.GetFloat("sfxVolume"));
         GameObject.Find("Canvas/MenuScreen/OptionsMenu/MusicSlider").GetComponent<Slider>().value = PlayerPrefs.GetFloat("musicVolume");
         GameObject.Find("Canvas/MenuScreen/OptionsMenu/SFXSlider").GetComponent<Slider>().value = PlayerPrefs.GetFloat("sfxVolume");
     }
@@ -67,12 +68,14 @@ public class MenuManager : MonoBehaviour
     {
         GameControl.control.musicVolume = value;
         PlayerPrefs.SetFloat("musicVolume", value);
+        Debug.Log("MUSICVOLUME:" + PlayerPrefs.GetFloat("musicVolume"));
     }
 
     public void ChangeSFX(float value)
     {
         GameControl.control.sfxVolume = value;
         PlayerPrefs.SetFloat("sfxVolume", value);
+        Debug.Log("SFXVOLUME:" + PlayerPrefs.GetFloat("sfxVolume"));
     }
 
     public void EnterDebug()
