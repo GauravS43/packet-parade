@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
+    private AudioSource jumpSFX;
     private Transform downCheck;
     private Transform leftCheck;
     private Transform rightCheck;
@@ -56,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         leftCheck = GameObject.Find("Player Controller/LeftCheck").GetComponent<Transform>();
         rightCheck = GameObject.Find("Player Controller/RightCheck").GetComponent<Transform>();
         upCheck = GameObject.Find("Player Controller/UpCheck").GetComponent<Transform>();
+        jumpSFX = GetComponent<AudioSource>();
 
         groundCheck[0] = downCheck;
         groundCheck[1] = rightCheck;
@@ -114,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             if (grounded) {
+                jumpSFX.Play();
                 heldJump = true;
                 velocity.x = 1.5f * jumpForce[oldState].x;
                 velocity.y = 1.5f * jumpForce[oldState].y;
@@ -129,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
                 heldJump = true;
                 velocity.x = 1.5f * jumpForce[oldState].x;
                 velocity.y = 1.5f * jumpForce[oldState].y;
+                jumpSFX.Play();
             }
             else
             {

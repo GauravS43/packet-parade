@@ -27,7 +27,10 @@ public class StoryText : MonoBehaviour
         {
             SceneManager.LoadScene("Lvl_01");
         }
-
+        else if (Input.GetButton("Jump"))
+        {
+            delay = delay / 2;
+        }
     }
     IEnumerator ShowText()
     {

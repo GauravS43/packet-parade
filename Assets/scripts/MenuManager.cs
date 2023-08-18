@@ -1,8 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    public void Start()
+    {
+        Debug.Log(PlayerPrefs.GetFloat("musicVolume"));
+        GameObject.Find("Canvas/MenuScreen/OptionsMenu/MusicSlider").GetComponent<Slider>().value = PlayerPrefs.GetFloat("musicVolume");
+        GameObject.Find("Canvas/MenuScreen/OptionsMenu/SFXSlider").GetComponent<Slider>().value = PlayerPrefs.GetFloat("sfxVolume");
+    }
+
+
     public void HandlePlay()
     {
         if (GameControl.control.gameProgress > 1)
@@ -54,14 +63,16 @@ public class MenuManager : MonoBehaviour
 
     }
 
-    public void MuteSFX()
+    public void ChangeMusic(float value)
     {
-
+        GameControl.control.musicVolume = value;
+        PlayerPrefs.SetFloat("musicVolume", value);
     }
 
-    public void MuteMusic()
+    public void ChangeSFX(float value)
     {
-
+        GameControl.control.sfxVolume = value;
+        PlayerPrefs.SetFloat("sfxVolume", value);
     }
 
     public void EnterDebug()

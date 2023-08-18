@@ -105,4 +105,16 @@ public class LvlSelectManager : MonoBehaviour
         }
 
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("left"))
+        {
+            leftPress();
+        }
+        if (Input.GetKeyDown("right"))
+        {
+            rightPress();
+        }
+    }
 }

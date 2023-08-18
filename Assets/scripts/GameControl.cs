@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameControl : MonoBehaviour
 {
@@ -7,9 +8,15 @@ public class GameControl : MonoBehaviour
 
     public Dictionary<string, bool[]> bonusDict = new Dictionary<string, bool[]>();
     public int gameProgress = 1;
+    public float musicVolume = 1;
+    public float sfxVolume = 1;
+
+    public AudioSource music;
 
     private void Awake()
     {
+        music = GameObject.Find("GameControl").GetComponent<AudioSource>();
+
         //stores if the player has obtained the bonuses in a level
         for(int i = 1; i < 17; i++)
         {
@@ -35,6 +42,8 @@ public class GameControl : MonoBehaviour
         if (PlayerPrefs.HasKey("gameProgress"))
         {
             gameProgress = PlayerPrefs.GetInt("gameProgress");
+            musicVolume = PlayerPrefs.GetFloat("musicVolume");
+            sfxVolume = PlayerPrefs.GetFloat("sfxVolume");
 
             //translates obtained stars for regular lvls
             for (int i=1; i<17; i++)
@@ -64,6 +73,9 @@ public class GameControl : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("gameProgress", 1);
+            PlayerPrefs.SetFloat("musicVolume", 1f);
+            PlayerPrefs.SetFloat("sfxVolume", 1f);
+
             for (int i = 1; i < 17; i++)
             {
                 string sceneName = (i < 10) ? "Lvl_0" + i : "Lvl_" + i;
