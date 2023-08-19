@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     private PlayerMovement playerMove;
     private Animator pauseMenu;
 
+    private AudioSource SFX;
+    [SerializeField] private AudioClip winSFX;
+    //[SerializeField] private AudioClip deathSFX;
+
     public void Start()
     {
         bonusUi1 = GameObject.Find("Canvas/LvlComplete/Star1/NotObtained");
@@ -22,6 +26,8 @@ public class GameManager : MonoBehaviour
         lvlComplete = GameObject.Find("Canvas/LvlComplete").GetComponent<Animator>();
         playerMove = GameObject.Find("Player Controller/Player").GetComponent<PlayerMovement>();
         pauseMenu = GameObject.Find("Canvas/PauseMenu").GetComponent<Animator>();
+
+        SFX = GameObject.Find("Player Controller/Player").GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -35,8 +41,13 @@ public class GameManager : MonoBehaviour
             isPlayerMoving = true;
         }
 
-        if (Input.GetKey("r")){
+        if (Input.GetKeyDown("r")){
             Restart();
+        }
+
+        if (Input.GetKeyDown("p"))
+        {
+            Pause();
         }
 
         if (gameWon && Input.GetButtonDown("Jump"))
@@ -47,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void WinLevel()
     {
+        SFX.PlayOneShot(winSFX, GameControl.control.sfxVolume);
         gameWon = true;
         string scene = SceneManager.GetActiveScene().name;
         //not called in start as it would not get updated
@@ -119,6 +131,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        GameControl.control.playSFX();
         if (gameStart && isPlayerMoving)
         {
             pauseMenu.Play("Pause_Appear");

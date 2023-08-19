@@ -4,7 +4,11 @@ using UnityEngine.Audio;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController controller;
-    private AudioSource jumpSFX;
+    private AudioSource SFX;
+
+    [SerializeField] private AudioClip jumpSFX;
+    [SerializeField] private AudioClip changeSFX;
+
     private Transform downCheck;
     private Transform leftCheck;
     private Transform rightCheck;
@@ -51,12 +55,6 @@ public class PlayerMovement : MonoBehaviour
         new Vector3(0f, -20f, 0f) //left
     };
 
-    private void playSfx(AudioSource source)
-    {
-        source.volume = GameControl.control.sfxVolume;
-        source.Play();
-    }
-
     void Start()
     {
         controller = GameObject.Find("Player Controller").GetComponent<CharacterController>();
@@ -64,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         leftCheck = GameObject.Find("Player Controller/LeftCheck").GetComponent<Transform>();
         rightCheck = GameObject.Find("Player Controller/RightCheck").GetComponent<Transform>();
         upCheck = GameObject.Find("Player Controller/UpCheck").GetComponent<Transform>();
-        jumpSFX = GetComponent<AudioSource>();
+        SFX = GetComponent<AudioSource>();
 
         groundCheck[0] = downCheck;
         groundCheck[1] = rightCheck;
@@ -90,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
         //changes camera and resets momentum when wall hit
         if (state != oldState && state > -1)
         {
+            //TODO: decide sfx
+            SFX.PlayOneShot(changeSFX, GameControl.control.sfxVolume);
             interpolateFlag = true;
             if (oldState == 0 || oldState == 2) velocity.y = 0;
             else velocity.x = 0;
@@ -123,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             if (grounded) {
-                playSfx(jumpSFX);
+                SFX.PlayOneShot(jumpSFX, GameControl.control.sfxVolume);
                 heldJump = true;
                 velocity.x = 1.5f * jumpForce[oldState].x;
                 velocity.y = 1.5f * jumpForce[oldState].y;
@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (grounded)
             {
-                playSfx(jumpSFX);
+                SFX.PlayOneShot(jumpSFX, GameControl.control.sfxVolume);
                 heldJump = true;
                 velocity.x = 1.5f * jumpForce[oldState].x;
                 velocity.y = 1.5f * jumpForce[oldState].y;

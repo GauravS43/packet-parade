@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f86c1902e0e24b51aa49a2a905b9f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winSFX: {fileID: 8300000, guid: 3955b7dee01154bf89ffb04d9efa3553, type: 3}
 --- !u!1 &7655319680687645852
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff19c5a26e9774153a4f428f3d5d5651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interpolate: 0
 --- !u!1 &7655319680966835060
 GameObject:
   m_ObjectHideFlags: 0

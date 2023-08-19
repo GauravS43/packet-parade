@@ -60,16 +60,16 @@
     <Compile Include="Assets/Scripts/TriggerDeath.cs" />
     <Compile Include="Assets/Scripts/MenuManager.cs" />
     <Compile Include="Assets/Scripts/GameManager.cs" />
+    <Compile Include="Assets/Scripts/CreditsManager.cs" />
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
     <Compile Include="Assets/Scripts/TriggerBonus.cs" />
+    <Compile Include="Assets/Scripts/StoryText.cs" />
     <Compile Include="Assets/Scripts/GameControl.cs" />
     <Compile Include="Assets/Scripts/CanvasManager.cs" />
     <Compile Include="Assets/Scripts/TriggerTip.cs" />
     <Compile Include="Assets/Scripts/TriggerGoal.cs" />
     <Compile Include="Assets/Scripts/MeshCombiner.cs" />
     <Compile Include="Assets/Scripts/FollowPlayer.cs" />
-    <Compile Include="Assets/Scripts/CreditsManager.cs" />
-    <Compile Include="Assets/Scripts/StoryText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

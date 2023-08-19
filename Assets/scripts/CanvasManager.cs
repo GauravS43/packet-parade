@@ -12,11 +12,13 @@ public class CanvasManager : MonoBehaviour
 
     public void BackToLvlSelect()
     {
+        GameControl.control.playSFX();
         SceneManager.LoadScene("_Lvl_Select");
     }
 
     public void ChangeMusic(float value)
     {
+        GameControl.control.music.volume = value;
         GameControl.control.musicVolume = value;
         PlayerPrefs.SetFloat("musicVolume", value);
     }
