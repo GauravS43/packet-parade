@@ -20,6 +20,7 @@ public class LvlSelectManager : MonoBehaviour
         {
             if (GameControl.control.gameProgress >= lvlNum)
             {
+                GameControl.control.playSFX();
                 SceneManager.LoadScene(sceneName);
             }
         }
@@ -27,6 +28,7 @@ public class LvlSelectManager : MonoBehaviour
         {
             if (bonusProgress/8 >= (lvlNum - 90))
             {
+                GameControl.control.playSFX();
                 SceneManager.LoadScene(sceneName);
             }
 
@@ -35,17 +37,20 @@ public class LvlSelectManager : MonoBehaviour
 
     public void HandleBack()
     {
+        GameControl.control.playSFX();
         SceneManager.LoadScene("__Menu");
     }
 
     public void rightPress()
     {
+        GameControl.control.playSFX();
         lvlAnimator.Play("LvlSwitchR" + animateState % 5);
         animateState++;
     }
 
     public void leftPress()
     {
+        GameControl.control.playSFX();
         lvlAnimator.Play("LvlSwitchL" + animateState % 5);
         animateState--;
     }

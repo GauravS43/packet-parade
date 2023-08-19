@@ -2179,6 +2179,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 994878379797140472, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 994878379797140472, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 994878379797140472, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243913280268172198, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243913280268172198, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243913280268172198, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1361500299420035987, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -2215,6 +2239,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -48.8
       objectReference: {fileID: 0}
+    - target: {fileID: 3187719903933933245, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187719903933933245, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000461275595929824, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000461275595929824, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5192529018571290571, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Text
       value: Minimization
@@ -2237,7 +2277,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7959481432050843632, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Text
-      value: Darker walls will not change gravity.
+      value: 'When given the opportunity to,
+
+        change gravity.'
       objectReference: {fileID: 0}
     - target: {fileID: 8552206846414623328, guid: dd63f1de326b442a39091f76ddc1cf71, type: 3}
       propertyPath: m_Text

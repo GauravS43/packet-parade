@@ -12,10 +12,24 @@ public class GameControl : MonoBehaviour
     public float sfxVolume = 1;
 
     public AudioSource music;
+    private AudioSource uiSFX; 
+
+
+    public void playSFX()
+    {
+        uiSFX.volume = sfxVolume;
+        uiSFX.Play();
+    }
 
     private void Awake()
     {
         music = GameObject.Find("GameControl").GetComponent<AudioSource>();
+        uiSFX = GameObject.Find("GameControl/SFXAudio").GetComponent<AudioSource>();
+
+        if (!music.isPlaying)
+        {
+            music.Play();
+        }
 
         //stores if the player has obtained the bonuses in a level
         for(int i = 1; i < 17; i++)

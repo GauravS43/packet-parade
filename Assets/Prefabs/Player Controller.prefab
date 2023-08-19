@@ -215,6 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37af7161ec0a47fda9eb077deb70c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSFX: {fileID: 8300000, guid: 914e0a2ba64244f1ea969cd5b57723df, type: 3}
+  changeSFX: {fileID: 8300000, guid: 103ffb1f4605b47d29cebe08b33e9b41, type: 3}
   groundMask:
     serializedVersion: 2
     m_Bits: 8

@@ -10,29 +10,33 @@ public class MenuManager : MonoBehaviour
         GameObject.Find("Canvas/MenuScreen/OptionsMenu/SFXSlider").GetComponent<Slider>().value = GameControl.control.sfxVolume;
     }
 
-
     public void HandlePlay()
     {
+        GameControl.control.playSFX();
         SceneManager.LoadScene((GameControl.control.gameProgress > 1) ? "_Lvl_Select" : "_Story");
     }
 
     public void HandleOptions()
     {
+        GameControl.control.playSFX();
         GameObject.Find("Canvas/MenuScreen").GetComponent<Animator>().Play("ToOptions");
     }
 
     public void HandleBack()
     {
+        GameControl.control.playSFX();
         GameObject.Find("Canvas/MenuScreen").GetComponent<Animator>().Play("ToMenu");
     }
 
     public void HandleCredits()
     {
+        GameControl.control.playSFX();
         SceneManager.LoadScene("_Credits");
     }
 
     public void ResetProgress()
     {
+        GameControl.control.playSFX();
         GameControl.control.gameProgress = 1;
         PlayerPrefs.SetInt("gameProgress", 1);
 
@@ -56,6 +60,7 @@ public class MenuManager : MonoBehaviour
 
     public void ChangeMusic(float value)
     {
+        GameControl.control.music.volume = value;
         GameControl.control.musicVolume = value;
         PlayerPrefs.SetFloat("musicVolume", value);
     }
@@ -68,6 +73,7 @@ public class MenuManager : MonoBehaviour
 
     public void EnterDebug()
     {
+        GameControl.control.playSFX();
         //100%s the game file
         GameControl.control.gameProgress = 16;
         PlayerPrefs.SetInt("gameProgress", 16);

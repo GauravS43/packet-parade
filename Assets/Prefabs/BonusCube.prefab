@@ -176,4 +176,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5824f046636249a992e7f997d32ab23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bonusSFX: {fileID: 8300000, guid: 1d068889a397e45af90fb26e04944520, type: 3}
   bonusCounter: 0

@@ -6,6 +6,7 @@ public class CreditsManager : MonoBehaviour
 
     public void HandleBack()
     {
+        GameControl.control.playSFX();
         SceneManager.LoadScene("__Menu");
     }
 }
